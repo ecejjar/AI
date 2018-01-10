@@ -251,10 +251,10 @@ class ProblemTest(unittest.TestCase):
         def repr ( node ):
             puzzle = node.item()
             side = int(sqrt(len(puzzle)))
-            lines = [[None for col in range(side)] for row in range(side)]
+            lines = [[None]*side]*side
             for i, p in enumerate(puzzle):
-                lines[row(p)][col(p)] = str(i)
-            return "%s (%d)" % ('\n'.join([''.join(row) for row in lines]), node.cost()) 
+                lines[p[0]][p[1]] = str(i)
+            return "%s (%d)" % ('\n'.join([''.join(r) for r in lines]), node.cost()) 
                 
         def successor ( n ):
             hole = n[0]
